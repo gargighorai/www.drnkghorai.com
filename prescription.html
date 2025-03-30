@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="prescription.css">
+    <title>Prescription WEB</title>
+</head>
+<body>
+  <div class="container">
+    <div class="header">
+            <div class="column">
+              
+               <img src="/images/myPhoto.jpg" alt="logo" width="100"/>
+              </div>
+              <div class="column">
+                  <h1> Dr N K Ghorai</h1>
+                  <h3> Welcome to our Prescription page</h3>
+                  <p id="currentDate">Date:</p>
+                 </div> 
+               </div>
+        
+      </div>
+      <nav>
+        <ul>
+          <li>Home </li>
+          <li> Contact us</li>
+          <li>About us</li>
+          <li>prescription</li>
+        </ul>
+      </nav>
+    </div>
+    <h2 class="patient" value="ddd">Prescription Section </h2>
+    <hr />
+    <div class="presSection">
+    <div class="column form-section">
+      
+        <label for="patientName">Patient Name:</label>
+        <input type="text" id="patientName" name="patientName" required>
+        <label for="ptAge">Age:</label>
+          <input type="text" id="ptAge" name="ptAge" required>
+          <label for="ptAge">Age:</label>
+          <!-- <input type="text" id="ptAge" name="ptAge" required> -->
+          <select name="ptAge" id="ptAge">
+            <option value="24">23 yrs</option>
+            <option value="24yrs">24 yrs</option>
+            <option value="24yrs">25 yrs</option>
+            <option value="24yrs">26 yrs</option>
+            <option value="24yrs">27 yrs</option>
+            <option value="24yrs">28 yrs</option>
+           </select>
+              <label for="medicationName">Medication:</label>
+              <input type="text" id="medicationName" name="medicationName" required>
+              <label for="dosage">Dosage:</label>
+             <input type="text" id="dosage" name="dosage" required>
+         <br><br>
+             <button type="submit">Submit</button>   
+            </div>
+        <div class="column">
+          <table>
+            <caption>Patient Record</caption>
+            <tr>
+              <th>Patient Name</th>
+              <th>Address</th>
+              <th>Phone</th>
+              <th>Email</th>
+            </tr>
+            <tr>
+              <td>Mrs Swarnali Ganguly</td>
+              <td>Barisha Kadamtala</td>
+              <td>9745366595</td>
+              <td>anindya@gmail.com</td>
+            </tr>
+          </table>
+          
+          </div>
+          
+      </div>
+      
+    </div>
+    
+  </div>
+
+    
+    <footer>
+      <p>drnkghorai.com</p><p>www.drnkghroai.com</p> 
+    </footer>
+    <script>
+       // Get the current date
+       function updateTime(){
+                const today = new Date();
+              
+              // Get the day, month,year minutes, seconds
+              let dd = today.getDate();
+              let mm = today.getMonth() + 1; // January is 0!
+              let yyyy = today.getFullYear();
+              //et hours = today.getHours();//.toString().padStart(2, "0");
+              let hours =today.getHours().toString().padStart(2, "0");
+              let minutes = today.getMinutes();
+              let seconds = today.getSeconds();
+              // Add leading zeros if necessary
+              if (dd < 10) { dd = '0' + dd;}
+              if (mm < 10) { mm = '0' + mm; }
+              if(hours < 10 ) {hours ='0' + hours}
+              if(minutes < 10) {minutes = '0' + minutes;}
+              if(seconds < 10 ) {seconds= '0' + seconds;}
+              let ampm = "AM";
+                 if (hours > 12) {
+                 hours = hours - 12;
+                 ampm = "PM"; } 
+             const dayName = today.toLocaleDateString("en-US", { weekday: "long" });
+              // Format the date as dd-mm-yyyy'
+              const formattedDate = dayName +':' + " "+ "   " + dd + '-' + mm +'-' + yyyy  + " || " + hours +':'+ minutes  +":" + seconds +'' + " "+  ampm;
+              // Insert the formatted date into the HTML
+              document.getElementById("currentDate").textContent = formattedDate;
+                }
+              // Update the time every second
+                   setInterval(updateTime, 1000);
+      </script>
+  </div>
+</body>
+</html>
